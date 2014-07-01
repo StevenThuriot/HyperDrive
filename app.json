@@ -1,0 +1,6 @@
+{
+  "name": "HyperIcon",
+  "description": "Base64 to Image Service",
+  "repository": "https://github.com/steventhuriot/hypericon/",
+  "keywords": [ "image", "base64" ]
+}

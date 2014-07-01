@@ -1,0 +1,35 @@
+{
+  "name": "HyperIcon",
+  "version": "1.0.0",
+  "description": "Base64 to Image Service",
+  "main": "hypericon.js",
+  "scripts": {
+    "start": "node hypericon.js"
+  },
+  "dependencies": {
+    "hat": "^0.0.3",
+    "memory-cache": "^0.0.5",
+    "express": "^4.4.5"
+  },
+  "keywords": [
+    "image",
+	"base64"
+  ],
+  "homepage": "https://github.com/steventhuriot/hypericon/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steventhuriot/hypericon.git"
+  },
+  "devDependencies": {},
+  "author": "Steven Thuriot",
+  "licenses" : [{
+    "type": "Apache-2.0",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0"
+  }],
+  "bugs": {
+    "url": "https://github.com/steventhuriot/hypericon/issues"
+  },  
+  "engines": {
+    "node": "0.10.x"
+  }
+}
