@@ -4,7 +4,28 @@ var express = require('express');
 
 var app = express();
 
-app.get('/:id', function(req, res){
+app.use (function(req, res, next) {
+	if (req.method == 'POST') {
+		var data='';
+		req.setEncoding('utf8');
+		req.on('data', function(chunk) { 
+		   data += chunk;
+		});
+
+		req.on('end', function() {
+			req.body = data;
+			next();
+		});
+	} else {
+		next();
+	}
+});
+
+app.get('/', function(req, res) {
+    res.redirect(301, 'https://github.com/steventhuriot/HyperIcon');
+});
+
+app.get('/:id', function(req, res) {
     var id = req.params.id;
     console.log("GET  - Getting Image: " + id);
     
@@ -18,7 +39,7 @@ app.get('/:id', function(req, res){
           'Content-Length': buffer.length,
           'Expires': new Date(Date.now() + 30000).toUTCString()
         });
-        
+		
         res.send(buffer);
     } else {             
         console.log("     - Image not found."); 
@@ -26,23 +47,11 @@ app.get('/:id', function(req, res){
     }
 });
 
-app.get('/', function(req, res){
-    res.redirect(301, 'https://github.com/steventhuriot/HyperIcon');
-});
-
-app.post('/', function(req, res) {    
+app.post('/', function(req, res) {  
     var id = hat();
-    var data = '';
-    
-    req.on('data', function(chunk) { 
-        data += chunk;
-    });
-    req.on('end', function() {
-        cache.put(id, data, 30000);
-    });
-    
-    console.log("POST - Created Image: " + id);
-    res.send(id);
+	cache.put(id, req.body, 30000);
+	console.log("POST - Created Image: " + id);
+	res.send(id);
 });
 
 var port = process.env.PORT || 3000;
