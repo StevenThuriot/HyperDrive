@@ -10,4 +10,4 @@ HyperIcon
     * Send post to the root of the service. Send the base64 as raw data.
     * The server responds with a unique id that can be used for the next 30 seconds.
     * Call http://nodejs:3000/id to see the image. Content is passed as image/jpeg.
-    * See the [XBMC Notifier plugin](https://github.com/steventhuriot/HyperQube/) for a sample.
+    * See the [XBMC Notifier plugin](https://github.com/steventhuriot/HyperQube-Plugins) for a sample.
