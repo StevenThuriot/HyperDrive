@@ -61,7 +61,7 @@ ImageStore.prototype.put = function(image, errCallback) {
     }
     
     if (typeof image !== 'string') {        
-        var error = new ReferenceError('image is not a base64 string.');
+        var error = new TypeError('image is not a base64 string.');
         if (!errCallback) {
             throw error;
         } else {                    
