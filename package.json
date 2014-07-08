@@ -7,13 +7,15 @@
     "start": "node hypericon.js"
   },
   "dependencies": {
+    "express": "^4.5.1",
     "hat": "^0.0.3",
+    "image-type": "^0.1.4",
     "memory-cache": "^0.0.5",
-    "express": "^4.4.5"
+    "mongoskin": "^1.4.4"
   },
   "keywords": [
     "image",
-	"base64"
+    "base64"
   ],
   "homepage": "https://github.com/steventhuriot/hypericon/",
   "repository": {
@@ -22,13 +24,15 @@
   },
   "devDependencies": {},
   "author": "Steven Thuriot",
-  "licenses" : [{
-    "type": "Apache-2.0",
-    "url": "http://www.apache.org/licenses/LICENSE-2.0"
-  }],
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/steventhuriot/hypericon/issues"
-  },  
+  },
   "engines": {
     "node": "0.10.x"
   }

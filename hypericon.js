@@ -1,8 +1,18 @@
-var hat = require('hat');
-var cache = require('memory-cache');
-var express = require('express');
+var ImageStore = require('./imageStore');
+var imageType = require('image-type');
 
-var app = express();
+var app = require('express')();
+var store = new ImageStore();
+
+
+app.use (function(req, res, next) {
+    if (req.url === '/favicon.ico') {
+        res.statusCode = 404;
+        res.end();
+    } else {
+        next();
+    }
+});
 
 app.use (function(req, res, next) {
 	if (req.method == 'POST') {
@@ -29,27 +39,22 @@ app.get('/:id', function(req, res) {
     var id = req.params.id;
     console.log("GET  - Getting Image: " + id);
     
-    var image = cache.get(id);    
-    if (image)
-    {
-        console.log('     - Image found');
-        var buffer = new Buffer(image, 'base64');
+    store.get(id, function(buffer) {
+        var type = imageType(buffer);
         res.set({
-          'Content-Type': 'image/jpeg',
+          'Content-Type': 'image/' + type,
           'Content-Length': buffer.length,
-          'Expires': new Date(Date.now() + 30000).toUTCString()
+          'Expires': new Date(Date.now() + 60000).toUTCString()
         });
-		
+        
         res.send(buffer);
-    } else {             
-        console.log("     - Image not found."); 
+    }, function() {
         res.send(404, "Could not find ID: " + id);
-    }
+    });
 });
 
 app.post('/', function(req, res) {  
-    var id = hat();
-	cache.put(id, req.body, 30000);
+    var id = store.put(req.body);
 	console.log("POST - Created Image: " + id);
 	res.send(id);
 });

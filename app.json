@@ -1,6 +1,6 @@
 {
   "name": "HyperIcon",
-  "description": "Base64 to Image Service",
+  "description": "10 Minute Picture Service",
   "repository": "https://github.com/steventhuriot/hypericon/",
-  "keywords": [ "image", "base64" ]
+  "keywords": [ "image", "base64", "10 minute" ]
 }
