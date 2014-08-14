@@ -1,6 +1,8 @@
 ![HyperIcon](http://img.dafont.com/preview.php?text=HyperIcon&ttf=squared_display0&ext=1&size=64&psize=m&y=53)
 ====
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/StevenThuriot/HyperIcon)
+
 * "10 Minute Image"
 * NodeJS Service that accepts base64 post messages and caches them for 10 minutes.
 * Created for serving images in `HyperQube's XBMC Notifier` plugin.
