@@ -2,6 +2,6 @@
   "name": "HyperIcon",
   "description": "10 Minute Picture Service",
   "repository": "https://github.com/steventhuriot/hypericon/",
-  "addons": ["mongohq:sandbox"],
+  "addons": ["mongohq"],
   "keywords": [ "image", "base64", "10 minute" ]
 }
