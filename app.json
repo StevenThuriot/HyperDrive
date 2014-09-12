@@ -3,5 +3,11 @@
   "description": "10 Minute Picture Service",
   "repository": "https://github.com/steventhuriot/hypericon/",
   "addons": ["mongohq"],
+  "env": {
+    "NODE_ENV": {
+      "description": "The NodeJS environment. (This shouldn't be altered)",
+      "value": "production"
+    }
+  },
   "keywords": [ "image", "base64", "10 minute" ]
 }
