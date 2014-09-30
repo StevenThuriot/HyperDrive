@@ -1,5 +1,4 @@
 var ImageStore = require('./imageStore');
-var imageType = require('image-type');
 
 var app = require('express')();
 var store = new ImageStore();
@@ -39,8 +38,10 @@ app.get('/:id', function(req, res) {
     var id = req.params.id;
     console.log("GET  - Getting Image: " + id);
     
-    store.get(id, function(buffer) {
-        var type = imageType(buffer);
+    store.get(id, function(image) {
+    	var buffer = image.buffer;
+    	var type = image.type;
+    	
         res.set({
           'Content-Type': 'image/' + type,
           'Content-Length': buffer.length,
