@@ -98,11 +98,11 @@ ImageStore.prototype.get = function(id, foundCallback, notFoundCallback, errCall
         throw new ReferenceError('foundCallback is not defined');
     }
     
-    var image = this.memoryCache.get(id);
+    var memoryImage = this.memoryCache.get(id);
     
-    if (image) {
+    if (memoryImage) {
         console.log('     - Retrieved image from memory!');
-        foundCallback(image);        
+        foundCallback(memoryImage);        
     } else {    
         this.images.findOne({id: id}, function(err, result) {
             if (err) {
