@@ -1,5 +1,7 @@
 var hat = require('hat');
 var mongoskin = require('mongoskin');
+var imageType = require('image-type');
+
 
 function extend() {
     var target = {}
@@ -71,9 +73,10 @@ ImageStore.prototype.put = function(image, errCallback) {
         
     var id = hat();
     var buffer = new Buffer(image, 'base64');
+    var type = imageType(buffer);
     
-    this.memoryCache.put(id, buffer, this._cacheExpiration);
-    this.images.insert({ id: id, image: buffer, createdAt: this.now() }, function(err, result) {        
+    this.memoryCache.put(id, { buffer: buffer, type: type }, this._cacheExpiration);
+    this.images.insert({ id: id, image: buffer, type: type, createdAt: this.now() }, function(err, result) {        
         if (err) {
             if (!errCallback) {
                 throw err;
@@ -95,11 +98,11 @@ ImageStore.prototype.get = function(id, foundCallback, notFoundCallback, errCall
         throw new ReferenceError('foundCallback is not defined');
     }
     
-    var buffer = this.memoryCache.get(id);
+    var image = this.memoryCache.get(id);
     
-    if (buffer) {
+    if (image) {
         console.log('     - Retrieved image from memory!');
-        foundCallback(buffer);        
+        foundCallback(image);        
     } else {    
         this.images.findOne({id: id}, function(err, result) {
             if (err) {
@@ -112,8 +115,10 @@ ImageStore.prototype.get = function(id, foundCallback, notFoundCallback, errCall
             
             if (result) {                
                 var image = result.image.buffer;
+                var type = result.type;
+                
                 console.log('     - Retrieved image from Mongo!');
-                foundCallback(image);
+                foundCallback({ buffer: image, type: type });
             } else {
                 console.log("     - Image not found."); 
                 if (notFoundCallback) notFoundCallback();
