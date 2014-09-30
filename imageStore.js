@@ -54,7 +54,7 @@ ImageStore.defaults = {
 
 
 ImageStore.prototype.now = function() {
-    return Date.now();
+    return new Date();
 };
 
 ImageStore.prototype.put = function(image, errCallback) {
