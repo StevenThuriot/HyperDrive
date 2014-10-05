@@ -1,8 +1,8 @@
 var ImageStore = require('./imageStore');
-
-var app = require('express')();
 var store = new ImageStore();
 
+var express = require('express');
+var app = express();
 
 app.use (function(req, res, next) {
     if (req.url === '/favicon.ico') {
@@ -30,8 +30,12 @@ app.use (function(req, res, next) {
 	}
 });
 
+app.engine('jade', require('jade').__express);
+app.set('view engine', 'jade');
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(req, res) {
-    res.redirect(301, 'https://github.com/steventhuriot/HyperIcon');
+	res.render('index', { content: "More to come..." });
 });
 
 app.get('/:id', function(req, res) {
