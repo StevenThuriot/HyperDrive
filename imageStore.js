@@ -70,6 +70,8 @@ ImageStore.prototype.put = function(image, errCallback) {
             errCallback(error);
         }        
     }
+    
+    //TODO: Store user IP
         
     var id = hat();
     var buffer = new Buffer(image, 'base64');

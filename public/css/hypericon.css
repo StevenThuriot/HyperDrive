@@ -82,7 +82,7 @@ header h2 {
   font-size: 1.2rem;
 }
 	
-#drop-overlay{
+#drop-overlay {
   height: 100%;
   left: 0;
   opacity: 0;
@@ -97,6 +97,6 @@ header h2 {
   background-repeat: no-repeat;
 }
 
-.state-over {
+#drop-overlay.state-over {
   opacity: 0.95;
 }
