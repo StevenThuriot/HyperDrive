@@ -78,7 +78,7 @@ ImageStore.prototype.put = function(image, errCallback) {
     var type = imageType(buffer);
     
     this.memoryCache.put(id, { buffer: buffer, type: type }, this._cacheExpiration);
-    this.images.insert({ id: id, image: buffer, type: type, createdAt: this.now() }, function(err, result) {        
+    this.images.insert({ id: id, image: image, type: type, createdAt: this.now() }, function(err, result) {        
         if (err) {
             if (!errCallback) {
                 throw err;
@@ -116,7 +116,7 @@ ImageStore.prototype.get = function(id, foundCallback, notFoundCallback, errCall
             }
             
             if (result) {                
-                var image = result.image.buffer;
+                var image = new Buffer(result.image, 'base64');
                 var type = result.type;
                 
                 console.log('     - Retrieved image from Mongo!');
