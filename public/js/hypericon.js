@@ -3,33 +3,35 @@
 //    
 //} else {
 
-$(document.documentElement).on('dragover', function(event) {
+var docuElement = $(document.documentElement);
+
+docuElement.on('dragover', function(event) {
     event.preventDefault();  
     event.stopPropagation();
 });
 
-$(document.documentElement).on('dragenter', function(event) {
+docuElement.on('dragenter', function(event) {
     event.preventDefault();  
     event.stopPropagation();
     
     $('#drop-overlay').addClass('state-over');
 });
 
-$(document.documentElement).on('dragleave', function(event) {
+docuElement.on('dragleave', function(event) {
     event.preventDefault();  
     event.stopPropagation();
     
     $('#drop-overlay').removeClass('state-over');
 });
 
-$(document.documentElement).on('dragend', function(event) {
+docuElement.on('dragend', function(event) {
     event.preventDefault();  
     event.stopPropagation();
     
     $('#drop-overlay').removeClass('state-over');
 });
 
-$(document.documentElement).on('drop', function(event) {
+docuElement.on('drop', function(event) {
     $('#drop-overlay').removeClass('state-over');
     
     if(event.originalEvent.dataTransfer) {
@@ -51,9 +53,11 @@ $(document.documentElement).on('drop', function(event) {
 
                         $.post("/", image, function(data) {
                             //TODO: Attach image to dropzone.
+                            NProgress.inc();
                         })
                         .fail(function() {
                             alert( "error" );
+                            NProgress.inc();
                         });
                     };	  
 
@@ -66,3 +70,17 @@ $(document.documentElement).on('drop', function(event) {
 });
 
 //}
+
+
+var docu = $(document);
+
+docu.ajaxStart(function() {
+    console.log('start');
+    NProgress.start();
+});
+
+docu.ajaxStop(function() {
+    console.log('stop');
+    NProgress.done();
+});
+
