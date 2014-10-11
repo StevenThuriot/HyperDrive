@@ -36,7 +36,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
     //TODO: Get all images for user IP.
-	res.render('index', { content: "More to come..." });
+	res.render('index');
 });
 
 app.get('/:id', function(req, res) {

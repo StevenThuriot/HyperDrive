@@ -6,7 +6,7 @@ body {
 header {			
 	letter-spacing: -1px;
 	margin-bottom: 3em;
-	color: black;  /* Fallback: assume this color ON TOP of image */
+	color: black;
 	background: -webkit-linear-gradient(transparent, transparent), url(/images/galaxy.jpg) repeat;
 	background: -o-linear-gradient(transparent, transparent);
 	-webkit-background-clip: text;
@@ -40,14 +40,6 @@ header h2 {
 	font-weight: bold;
 }
 
-#dropzone { 
-	/* TODO */
-	text-align: center;
-	font-size: 5rem;
-	font-weight: bold;
-	margin-top: 3em;
-}
-
 
 
 
@@ -75,7 +67,6 @@ header h2 {
   margin-left: -19%;
   padding: 3em 1em;
   position: absolute;
-  text-align: center;
   top: 40%;
   width: 38%;
   z-index: 100;
@@ -99,4 +90,47 @@ header h2 {
 
 #drop-overlay.state-over {
   opacity: 0.95;
+}
+
+
+
+
+#dropzone { 
+	text-align: center;
+}
+
+.hyperIcon {
+    height: 200px;
+    width: 200px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 100%;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    margin: 5px;
+}
+
+.hyperIcon p {
+    font: Monaco, MonoSpace;
+    width: 20px;
+    font-size: 26px;
+    top: -26px;
+    height: 100px;
+    left: 90px;
+    position: absolute;
+    transform-origin: bottom center;
+    color: #f8f8ff;
+    /*
+    color: #fff;
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    */
 }
