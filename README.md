@@ -8,7 +8,8 @@
 * Created for serving images in `HyperQube's XBMC Notifier` plugin.
 	* A `base64` string is passed to the plugin
 	* XBMC's `GUI.ShowNotification` accepts a URI
-	
+* Font-End with drop functionality
+	* (Still under construction)
 * Usage
     * Send post to the root of the service. Send the base64 as raw data.
     * The server responds with a unique id that can be used for the next 10 minutes.
