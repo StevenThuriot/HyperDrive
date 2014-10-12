@@ -99,9 +99,10 @@ header h2 {
 	text-align: center;
 }
 
-.hyperIcon {
+.hyperIcon {    
     height: 200px;
     width: 200px;
+    float: left;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -109,16 +110,16 @@ header h2 {
     background-repeat: no-repeat;
     background-position: center center;
     border-radius: 100%;
-    display: inline-block;
     overflow: hidden;
     position: relative;
     margin: 5px;
+    transition: all 1s ease;
+    cursor: pointer;
 }
 
 .hyperIcon p {
-    font: Monaco, MonoSpace;
+    font: 26px Monaco, monospace;
     width: 20px;
-    font-size: 26px;
     top: -26px;
     height: 100px;
     left: 90px;

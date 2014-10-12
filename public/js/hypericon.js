@@ -34,10 +34,10 @@ docuElement.on('dragend', function(event) {
 
 function createHyperIcon(fileName, image) {
     var shortName = fileName.substring(0, 30);
-    
+        
     var imageElement = $('<div>', {
         class: 'hyperIcon',
-        style: 'background-image: url("' + image + '");'
+        style: 'background-image: url("' + createHyperThumb(image) + '");'
     });
 
     for (var i = 0, len = shortName.length; i < len; i++) {
@@ -48,6 +48,36 @@ function createHyperIcon(fileName, image) {
     }
 
     imageElement.appendTo($('#dropzone'));   
+}
+
+function createHyperThumb(b64) {
+    console.log("Before: " + b64.length);
+    var image = new Image();
+    image.src = b64;
+        
+    var ratio = 200 / Math.min(image.width, image.height);
+    
+    if (ratio > 1) {
+        return b64;//Small image, don't resize.
+    }
+    
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    
+    canvas.width = image.width * ratio;
+    canvas.height = image.height * ratio;
+    
+    ctx.scale(ratio, ratio);
+    ctx.drawImage(image, 0, 0);
+    
+    var dataUrl = canvas.toDataURL("image/jpeg", 0.75);
+    console.log("After: " + dataUrl.length);
+    
+    if (b64.length < dataUrl.length) {
+        return b64; //Resizing made it larger :(
+    }
+    
+    return dataUrl;
 }
 
 docuElement.on('drop', function(event) {
