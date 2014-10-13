@@ -1,4 +1,4 @@
-//TODO: FileReader Not Supported! Show classic upload form.
+//Future: FileReader Not Supported! Show classic upload form.
 //if (typeof window.FileReader === 'undefined') {
 //    
 //} else {
@@ -47,6 +47,7 @@ function createHyperIcon(fileName, image) {
         }).appendTo(imageElement);
     }
 
+    //Future: Attach click handler to go to view page.
     imageElement.appendTo($('#dropzone'));   
 }
 
@@ -86,11 +87,11 @@ docuElement.on('drop', function(event) {
     if(event.originalEvent.dataTransfer) {
         var files = event.originalEvent.dataTransfer.files;
         
-        if(files.length) { //TODO: Max length?
+        if(files.length) { //Note: Should we check max length? E.g. 5 images at once, top?
             event.preventDefault();
             event.stopPropagation();
             
-            $.each(files, function(i, file) { //TODO: Optimize post.
+            $.each(files, function(i, file) { //TODO: Optimize post instead of spamming the server.
                 if (file.type.indexOf('image/') == 0) {	
                     var reader = new FileReader();  
 
@@ -99,14 +100,13 @@ docuElement.on('drop', function(event) {
                         
                         var image = event.target.result;
                                                 
-                        createHyperIcon(file.name, image);//TODO: Move to success
-                        
                         $.post("/", image, function(data) {
                             NProgress.inc();
+                            createHyperIcon(file.name, image);
                         })
                         .fail(function() {
-                            alert( "error" );
                             NProgress.inc();
+                            alert( "Oops..!" ); //TODO: Improve error handling.
                         });
                     };	  
 

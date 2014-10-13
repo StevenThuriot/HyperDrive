@@ -1,22 +1,22 @@
 var hat = require('hat');
 var mongoskin = require('mongoskin');
 var imageType = require('image-type');
-
+var lwip = require('lwip');
 
 function extend() {
-    var target = {}
+    var target = {};
 
     for (var i = 0; i < arguments.length; i++) {
-        var source = arguments[i]
+        var source = arguments[i];
 
         for (var key in source) {
             if (source.hasOwnProperty(key)) {
-                target[key] = source[key]
+                target[key] = source[key];
             }
         }
     }
 
-    return target
+    return target;
 }
 
 var ImageStore = module.exports = function(options) {
@@ -58,6 +58,7 @@ ImageStore.prototype.now = function() {
 };
 
 ImageStore.prototype.put = function(image, errCallback) {
+    var self = this;
     if (!imageType) {
         throw new ReferenceError('image is not defined');
     }
@@ -72,13 +73,61 @@ ImageStore.prototype.put = function(image, errCallback) {
     }
     
     //TODO: Store user IP
-        
+            
+    var bIndex = image.substring(0, 50).indexOf(';base64,');
+    if (bIndex > 0) {
+        image = image.substring(bIndex + 8);
+    }    
+    
     var id = hat();
     var buffer = new Buffer(image, 'base64');
     var type = imageType(buffer);
     
-    this.memoryCache.put(id, { buffer: buffer, type: type }, this._cacheExpiration);
-    this.images.insert({ id: id, image: image, type: type, createdAt: this.now() }, function(err, result) {        
+    console.log(type);
+    
+    //Memory cache for a short while
+    self.memoryCache.put(id, { buffer: buffer, type: type }, self._cacheExpiration);
+    
+    console.log(image.substring(0, 40));
+    
+    lwip.open(buffer, 'jpg', function(lwipErr, img) {
+        if (lwipErr) {
+            if (!errCallback) {
+                throw lwipErr;
+            } else {                    
+                errCallback(lwipErr);
+            }
+        }
+        
+        var ratio = 200 / Math.min(img.width(), img.height());
+        
+        if (ratio < 1) {            
+            img.batch()
+                .scale(ratio)
+                .crop(200, 200)
+                .toBuffer('jpg', {quality: 75}, function(thumbErr, bff){             
+                    if (thumbErr) {
+                        if (!errCallback) {
+                            throw thumbErr;
+                        } else {                    
+                            errCallback(thumbErr);
+                        }
+                    }
+                    self._putInMongo(id, image, bff.toString('base64'), type);
+            });
+        } else {
+            //We're not going to enlarge it, save as is.
+            self._putInMongo(id, image, image, type);
+        }
+    });
+    
+    console.log('     - Cached image!');
+    return id;
+};
+        
+ImageStore.prototype._putInMongo = function(id, image, thumbnail, type) {
+    var self = this;
+    self.images.insert({ id: id, image: image, thumbnail: thumbnail, type: type, createdAt: this.now() }, function(err, result) {        
         if (err) {
             if (!errCallback) {
                 throw err;
@@ -86,11 +135,10 @@ ImageStore.prototype.put = function(image, errCallback) {
                 errCallback(err);
             }
         }
+        
+        console.log('     - Cached image in MongoDb! (Sizes ~ Img: %s, Thumb: %s)', image.length, thumbnail.length);
     });
-    
-    console.log('     - Cached image!');
-    return id;
-};
+}
 
 ImageStore.prototype.get = function(id, foundCallback, notFoundCallback, errCallback) {
     if (!id) {
