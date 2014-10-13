@@ -74,7 +74,7 @@ ImageStore.prototype.put = function(image, errCallback) {
     
     //TODO: Store user IP
             
-    var bIndex = image.substring(0, 50).indexOf(';base64,');
+    var bIndex = image.substring(0, 40).indexOf(';base64,');
     if (bIndex > 0) {
         image = image.substring(bIndex + 8);
     }    
@@ -82,15 +82,11 @@ ImageStore.prototype.put = function(image, errCallback) {
     var id = hat();
     var buffer = new Buffer(image, 'base64');
     var type = imageType(buffer);
-    
-    console.log(type);
-    
+        
     //Memory cache for a short while
     self.memoryCache.put(id, { buffer: buffer, type: type }, self._cacheExpiration);
-    
-    console.log(image.substring(0, 40));
-    
-    lwip.open(buffer, 'jpg', function(lwipErr, img) {
+        
+    lwip.open(buffer, type, function(lwipErr, img) {
         if (lwipErr) {
             if (!errCallback) {
                 throw lwipErr;
