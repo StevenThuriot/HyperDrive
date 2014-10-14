@@ -15,7 +15,8 @@ header {
 }
 
 header:before {			
-	position: absolute;
+	position: fixed;
+    z-index: 1050;
 	top: 0;
 	right: 0;
 	width: 100%;
@@ -50,12 +51,6 @@ header h2 {
 }
 
 #drop-overlay {
-  height: 100%;
-  left: 0;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  width: 100%;
 }
 #drop-msg {
   background-color: #D8DEE3;
@@ -76,11 +71,12 @@ header h2 {
 #drop-overlay {
   height: 100%;
   left: 0;
-  opacity: 0;
-  position: absolute;
   top: 0;
+  opacity: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 99;    
+  pointer-events: none;
+  position: fixed;
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(216, 222, 227, 0.30000000000000004)), to(#3F4447));
   background-image: -webkit-radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);
   background-image: -moz-radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);

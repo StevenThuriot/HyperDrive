@@ -35,7 +35,7 @@ var ImageStore = module.exports = function(options) {
         }
     }
     
-    this._cacheExpiration = configuration.memoryExpiration;
+    this.__cacheExpiration = configuration.memoryExpiration;
     
     var db = mongoskin.db(configuration.dbUri);
     this.images = db.collection('images');
@@ -84,7 +84,7 @@ ImageStore.prototype.put = function(image, errCallback) {
     var type = imageType(buffer);
         
     //Memory cache for a short while
-    self.memoryCache.put(id, { buffer: buffer, type: type }, self._cacheExpiration);
+    self.memoryCache.put(id, { buffer: buffer, type: type }, self.__cacheExpiration);
         
     lwip.open(buffer, type, function(lwipErr, img) {
         if (lwipErr) {
@@ -109,11 +109,11 @@ ImageStore.prototype.put = function(image, errCallback) {
                             errCallback(thumbErr);
                         }
                     }
-                    self._putInMongo(id, image, bff.toString('base64'), type);
+                    self.__putInMongo(id, image, bff.toString('base64'), type);
             });
         } else {
             //We're not going to enlarge it, save as is.
-            self._putInMongo(id, image, image, type);
+            self.__putInMongo(id, image, image, type);
         }
     });
     
@@ -121,7 +121,7 @@ ImageStore.prototype.put = function(image, errCallback) {
     return id;
 };
         
-ImageStore.prototype._putInMongo = function(id, image, thumbnail, type) {
+ImageStore.prototype.__putInMongo = function(id, image, thumbnail, type) {
     var self = this;
     self.images.insert({ id: id, image: image, thumbnail: thumbnail, type: type, createdAt: this.now() }, function(err, result) {        
         if (err) {
