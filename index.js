@@ -1,6 +1,9 @@
 var ImageStore = require('./imageStore');
 var store = new ImageStore();
 
+var RateLimiter = require('limiter').RateLimiter;
+var limiter = new RateLimiter(3, 'second', true); //true : Fire callback right away
+
 var express = require('express');
 var app = express();
 
@@ -60,10 +63,24 @@ app.get('/:id', function(req, res) {
     });
 });
 
-app.post('/', function(req, res) {  
-    var id = store.put(req.body);
-	console.log("POST - Created Image: " + id);
-	res.send(id);
+
+function limit(res, callback) {
+    limiter.removeTokens(1, function(err, remainingRequests) {
+        if (remainingRequests < 0) {
+            res.writeHead(429, {'Content-Type': 'text/plain;charset=UTF-8'});
+            res.end('429 Too Many Requests - your IP is being rate limited');
+        } else {
+            callback();
+        }
+    });
+}
+
+app.post('/', function(req, res) {
+    limit(res, function() {
+        var id = store.put(req.body);
+        console.log("POST - Created Image: " + id);
+        res.send(id); 
+    });
 });
 
 var port = process.env.PORT || 3000;

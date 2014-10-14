@@ -104,9 +104,13 @@ docuElement.on('drop', function(event) {
                             NProgress.inc();
                             createHyperIcon(file.name, image);
                         })
-                        .fail(function() {
-                            NProgress.inc();
-                            alert( "Oops..!" ); //TODO: Improve error handling.
+                        .fail(function(xhr, textStatus, errorThrown) {
+                            //TODO: Improve error handling
+                            if (xhr.status === 429) {
+                                alert('Slow down, bro!');
+                            } else {
+                                alert(xhr.responseText);
+                            }
                         });
                     };	  
 
