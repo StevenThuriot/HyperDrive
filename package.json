@@ -14,7 +14,7 @@
     "mongoskin": "~1.4.4",
     "jade": "~1.7.0",
     "lwip": "0.0.5",
-    "limiter": "~1.0.5"
+    "ipware": "0.0.2"
   },
   "keywords": [
     "image",

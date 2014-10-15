@@ -52,7 +52,6 @@ function createHyperIcon(fileName, image) {
 }
 
 function createHyperThumb(b64) {
-    console.log("Before: " + b64.length);
     var image = new Image();
     image.src = b64;
         
@@ -72,8 +71,7 @@ function createHyperThumb(b64) {
     ctx.drawImage(image, 0, 0);
     
     var dataUrl = canvas.toDataURL("image/jpeg", 0.75);
-    console.log("After: " + dataUrl.length);
-    
+        
     if (b64.length < dataUrl.length) {
         return b64; //Resizing made it larger :(
     }
@@ -96,8 +94,6 @@ docuElement.on('drop', function(event) {
                     var reader = new FileReader();  
 
                     reader.onload = function (event) {
-                        console.log(event.target.result);
-                        
                         var image = event.target.result;
                                                 
                         $.post("/", image, function(data) {
