@@ -4,7 +4,7 @@ var store = new ImageStore();
 var express = require('express');
 var app = express();
 
-var Limiter = require('./lib/limiter');
+var Limiter = require('express-rate-limiter');
 var limiter = new Limiter();
 
 app.use (function(req, res, next) {
