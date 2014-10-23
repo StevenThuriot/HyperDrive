@@ -14,7 +14,7 @@
     "jade": "~1.7.0",
     "lwip": "0.0.5",
     "memory-cache": "0.0.5",
-    "express-rate-limiter": "~0.5.1"
+    "express-rate-limiter": "~0.6.0"
   },
   "keywords": [
     "image",
