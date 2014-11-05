@@ -7,14 +7,14 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.7",
+    "express": "~4.10.0",
     "hat": "0.0.3",
     "image-type": "~1.0.0",
     "mongoskin": "~1.4.4",
     "jade": "~1.7.0",
     "lwip": "0.0.5",
     "memory-cache": "0.0.5",
-    "express-rate-limiter": "~0.6.0"
+    "express-rate-limiter": "~0.8.0"
   },
   "keywords": [
     "image",
