@@ -38,15 +38,20 @@ function createHyperIcon(fileName, image, id) {
     var imageElement = $('<div>', {
         class: 'hyperIcon',
         style: 'background-image: url("' + createHyperThumb(image) + '");',
-        title: 'Click to view, Ctrl+Click to view the image only.',
+        title: 'Click to view, Alt+Click to view the image only.',
         click: function (event) {
+            event.preventDefault();
             var location = "/" + id;
 
-            if (!event.ctrlKey) {
+            if (!event.altKey) {
                 location = "/view" + location;
             }
 
-            window.location.href = location;
+            if (event.ctrlKey) {               
+                window.open(window.location.origin + location);
+            } else {
+                window.location.href = location;
+            }
         }
     });
 
