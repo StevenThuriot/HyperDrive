@@ -41,17 +41,26 @@ function createHyperIcon(fileName, image, id) {
         title: 'Click to view, Alt+Click to view the image only.',
         click: function (event) {
             event.preventDefault();
+
+            //0: left
+            //1: middle            
+            if (event.button !== 0 && event.button !== 1)
+                return;
+
             var location = "/" + id;
 
             if (!event.altKey) {
                 location = "/view" + location;
             }
 
-            if (event.ctrlKey) {               
+            if (event.ctrlKey || event.button === 1) {
                 window.open(window.location.origin + location);
             } else {
                 window.location.href = location;
             }
+        },
+        contextmenu: function () {
+            return false;
         }
     });
 
@@ -61,7 +70,6 @@ function createHyperIcon(fileName, image, id) {
             style: 'transform: rotate(' + (-60 + i * 12) + 'deg);'
         }).appendTo(imageElement);
     }
-
 
     imageElement.appendTo($('#dropzone'));
 }
