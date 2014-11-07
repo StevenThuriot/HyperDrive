@@ -18,24 +18,6 @@ app.use(function (req, res, next) {
     }
 });
 
-
-app.use(function (req, res, next) {
-    if (req.method == 'POST') {
-        var data = '';
-        req.setEncoding('utf8');
-        req.on('data', function (chunk) {
-            data += chunk;
-        });
-
-        req.on('end', function () {
-            req.body = data;
-            next();
-        });
-    } else {
-        next();
-    }
-});
-
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade');
 
@@ -67,7 +49,41 @@ app.get('/:id', function (req, res) {
 });
 
 
-app.post('/', limiter.middleware(), function (req, res) {
+
+app.post('/', limiter.middleware(), function (req, res, next) {
+    var data = '';
+
+    req.setEncoding('utf8');
+
+    //Data is received in chunks, not in one call.
+    //Gather data until done or too large.
+
+    var onReceived = function () {
+        req.body = data;
+        next();
+    };
+
+    req.on('end', onReceived);
+
+    var onReceive = function (chunk) {
+        data += chunk;
+
+        //A char takes up 1 byte. Thus length === amount of bytes used.
+        if (data.length > 500000) { //0.5MB
+
+            //Remove listeners so they don't keep triggering.
+            req.removeListener('data', onReceive);
+            req.removeListener('end', onReceived);
+
+            //Too large, deny!
+            res.status(413).send('413 - Request Entity Too Large');
+        }
+    };
+
+    req.on('data', onReceive);
+});
+
+app.post('/', function (req, res) {
     var id = store.put(req.body);
     console.log("POST - Created Image: " + id);
     res.send(id);
