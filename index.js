@@ -28,6 +28,10 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
+app.get('/view', function (req, res) {
+    res.redirect(301, '/');
+});
+
 app.get('/:id', function (req, res) {
     var id = req.params.id;
     console.log("GET  - Getting Image: " + id);
@@ -44,10 +48,15 @@ app.get('/:id', function (req, res) {
 
         res.send(buffer);
     }, function () {
-        res.send(404, "Could not find ID: " + id);
+        res.status(404).send("Could not find ID: " + id);
     });
 });
 
+app.get('/view/:id', function (req, res) {
+    var id = req.params.id;
+    console.log("GET  - Viewing Image: " + id);
+    res.render('view', { image: '/' + id });
+});
 
 
 app.post('/', limiter.middleware(), function (req, res, next) {

@@ -1,108 +1,90 @@
 body {
-	font-family: 'Montserrat', sans-serif;
-	color: #2c2f31;
+    font-family: 'Montserrat', sans-serif;
+    color: #2c2f31;
 }
-
-header {			
-	letter-spacing: -1px;
-	margin-bottom: 3em;
-	color: black;
-	background: -webkit-linear-gradient(transparent, transparent), url(/images/galaxy.jpg) repeat;
-	background: -o-linear-gradient(transparent, transparent);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	font-weight: bold;
+header {
+    letter-spacing: -1px;
+    margin-bottom: 3em;
+    color: black;
+    background: -webkit-linear-gradient(transparent, transparent), url(/images/galaxy.jpg) repeat;
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
 }
-
-header:before {			
-	position: fixed;
+header:before {
+    position: fixed;
     z-index: 1050;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 5px;
-	margin: 0 0 0 0;
-	background: url(/images/galaxy.jpg) no-repeat 0px 0px; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	content: "";
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    margin: 0 0 0 0;
+    background: url(/images/galaxy.jpg) no-repeat 0px 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    content: "";
 }
-
 header h1 {
-	margin: 10px 0 10px 0;
-	font-size: 3rem;
+    margin: 10px 0 10px 0;
+    font-size: 3rem;
 }
-
 header h2 {
-	margin: -0.6em 0 0 4.15em;
-	font-size: 1rem;
-	font-weight: bold;
+    margin: -0.6em 0 0 4.15em;
+    font-size: 1rem;
+    font-weight: bold;
 }
-
-
-
-
 #drop-overlay,
 #drop-msg {
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
-
+#drop-overlay {} #drop-msg {
+    background-color: #D8DEE3;
+    border: 1px solid #0072BC;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 0 50px #0072BC;
+    box-shadow: 0 0 50px #0072BC;
+    left: 50%;
+    margin-left: -19%;
+    padding: 3em 1em;
+    position: absolute;
+    top: 40%;
+    width: 38%;
+    z-index: 100;
+    font-size: 1.2rem;
+}
 #drop-overlay {
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: 99;
+    pointer-events: none;
+    position: fixed;
+    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(216, 222, 227, 0.30000000000000004)), to(#3F4447));
+    background-image: -webkit-radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);
+    background-image: -moz-radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);
+    background-image: radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);
+    background-repeat: no-repeat;
 }
-#drop-msg {
-  background-color: #D8DEE3;
-  border: 1px solid #0072BC;
-  border-radius: 6px;
-  -webkit-box-shadow: 0 0 50px #0072BC;
-  box-shadow: 0 0 50px #0072BC;
-  left: 50%;
-  margin-left: -19%;
-  padding: 3em 1em;
-  position: absolute;
-  top: 40%;
-  width: 38%;
-  z-index: 100;
-  font-size: 1.2rem;
-}
-	
-#drop-overlay {
-  height: 100%;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  width: 100%;
-  z-index: 99;    
-  pointer-events: none;
-  position: fixed;
-  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(216, 222, 227, 0.30000000000000004)), to(#3F4447));
-  background-image: -webkit-radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);
-  background-image: -moz-radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);
-  background-image: radial-gradient(circle, rgba(216, 222, 227, 0.30000000000000004), #3F4447);
-  background-repeat: no-repeat;
-}
-
 #drop-overlay.state-over {
-  opacity: 0.95;
+    opacity: 0.95;
 }
-
-
-
-
-#dropzone { 
-	text-align: center;
+#dropzone {
+    text-align: center;
 }
-
-.hyperIcon {    
+.hyperIcon {
     height: 200px;
     width: 200px;
     float: left;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     border-radius: 100%;
@@ -112,7 +94,6 @@ header h2 {
     transition: all 1s ease;
     cursor: pointer;
 }
-
 .hyperIcon p {
     font: 26px Monaco, monospace;
     width: 20px;
@@ -130,4 +111,14 @@ header h2 {
         -1px 1px 0 #000,
         1px 1px 0 #000;
     */
+}
+.hyperView {
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    left: auto;
+    right: auto;
+    display: block;
+    margin: 0px auto;
+    max-width: 100%;
 }
