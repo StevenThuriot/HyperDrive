@@ -115,7 +115,6 @@ header h2 {
 .hyperView {
     border-radius: 3px;
     overflow: hidden;
-    cursor: pointer;
     left: auto;
     right: auto;
     display: block;
