@@ -4,6 +4,8 @@ block content
     p More to come...
 
     #dropzone
+        each img in images
+          .hyperIcon(id="#{img.id}", style="background-image: url('#{img.image}')", title='Click to view, Alt+Click to view the image only.')
 
     #drop-overlay
         #drop-msg Drop your files anywhere!
