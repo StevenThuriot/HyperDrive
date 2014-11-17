@@ -1,42 +1,44 @@
 {
-  "name": "HyperIcon",
-  "version": "2.0.0",
-  "description": "Base64 to Image Service",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "express": "~4.10.0",
-    "hat": "0.0.3",
-    "image-type": "~1.0.0",
-    "mongoskin": "~1.4.4",
-    "jade": "~1.7.0",
-    "lwip": "0.0.5",
-    "memory-cache": "0.0.5",
-    "express-rate-limiter": "~0.8.0"
-  },
-  "keywords": [
+    "name": "HyperIcon",
+    "version": "2.0.0",
+    "description": "Base64 to Image Service",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "~4.10.0",
+        "hat": "0.0.3",
+        "image-type": "~1.0.0",
+        "mongoskin": "~1.4.4",
+        "jade": "~1.7.0",
+        "lwip": "0.0.5",
+        "memory-cache": "0.0.5",
+        "express-rate-limiter-redis": "~1.0.2"
+    },
+    "devDependencies": {
+        "express-rate-limiter": "~1.0.1"
+    },
+    "keywords": [
     "image",
     "base64"
   ],
-  "homepage": "https://github.com/steventhuriot/hypericon/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/steventhuriot/hypericon.git"
-  },
-  "devDependencies": {},
-  "author": "Steven Thuriot",
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    "homepage": "https://github.com/steventhuriot/hypericon/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/steventhuriot/hypericon.git"
+    },
+    "author": "Steven Thuriot",
+    "licenses": [
+        {
+            "type": "Apache-2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "bugs": {
-    "url": "https://github.com/steventhuriot/hypericon/issues"
-  },
-  "engines": {
-    "node": "0.10.x"
-  }
+    "bugs": {
+        "url": "https://github.com/steventhuriot/hypericon/issues"
+    },
+    "engines": {
+        "node": "0.10.x"
+    }
 }
