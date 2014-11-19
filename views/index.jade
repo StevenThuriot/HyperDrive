@@ -3,7 +3,7 @@ extends layout
 block content
     p More to come...
 
-    #dropzone
+    #dropzone(style="display: none")
         each img in images
           .hyperIcon(id="#{img.id}", style="background-image: url('#{img.image}')", title='Click to view, Alt+Click to view the image only.')
 
