@@ -11,8 +11,9 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
+    display: inline-block;
 }
-header:before {
+header::before {
     position: fixed;
     z-index: 1050;
     top: 0;
@@ -31,10 +32,23 @@ header h1 {
     margin: 10px 0 10px 0;
     font-size: 3rem;
 }
+header h1::before {
+    float: left;
+    margin: -0.2rem 0.5rem 2px 2px;
+    width: 5rem;
+    height: 5rem;
+    background: url(/images/hypericon.png) no-repeat 0px 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    content: "";
+}
 header h2 {
     margin: -0.6em 0 0 4.15em;
     font-size: 1rem;
     font-weight: bold;
+    text-align: right;
 }
 #drop-overlay,
 #drop-msg {
