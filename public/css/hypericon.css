@@ -135,3 +135,37 @@ header h2 {
     margin: 0px auto;
     max-width: 100%;
 }
+@-webkit-keyframes pulse {
+    25% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    75% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+}
+@keyframes pulse {
+    25% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    75% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+}
+.pulse {
+    display: inline-block;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
