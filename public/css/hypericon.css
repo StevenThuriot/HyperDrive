@@ -13,7 +13,7 @@ header {
     font-weight: bold;
     display: inline-block;
 }
-header::before {
+header:before {
     position: fixed;
     z-index: 1050;
     top: 0;
@@ -32,7 +32,7 @@ header h1 {
     margin: 10px 0 10px 0;
     font-size: 3rem;
 }
-header h1::before {
+header h1:before {
     float: left;
     margin: -0.2rem 0.5rem 2px 2px;
     width: 5rem;
@@ -55,26 +55,39 @@ header h2 {
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
-#drop-overlay {} #drop-msg {
+#drop-msg {
     background-color: #D8DEE3;
     border: 1px solid #0072BC;
-    border-radius: 6px;
+    border-radius: 100%;
     -webkit-box-shadow: 0 0 50px #0072BC;
     box-shadow: 0 0 50px #0072BC;
-    left: 50%;
-    margin-left: -19%;
-    padding: 3em 1em;
-    position: absolute;
-    top: 40%;
-    width: 38%;
     z-index: 100;
     font-size: 1.2rem;
+
+    position: absolute;
+
+    max-width: 350px;
+    max-height: 350px;
+
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+#drop-msg:before {
+  content:"";
+  display:block;
+  width: 100%;
+  height: 100%;
+  background: url(/images/hypericon.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 #drop-overlay {
+    opacity: 0;
     height: 100%;
     left: 0;
     top: 0;
-    opacity: 0;
     width: 100%;
     z-index: 99;
     pointer-events: none;
@@ -120,7 +133,7 @@ header h2 {
     /*
     color: #fff;
     text-shadow:
-        -1px -1px 0 #000,  
+        -1px -1px 0 #000,
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
@@ -137,22 +150,22 @@ header h2 {
 }
 @-webkit-keyframes pulse {
     25% {
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05);
+        -webkit-transform: scale(1.02);
+        transform: scale(1.02);
     }
     75% {
-        -webkit-transform: scale(0.95);
-        transform: scale(0.95);
+        -webkit-transform: scale(0.98);
+        transform: scale(0.98);
     }
 }
 @keyframes pulse {
     25% {
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05);
+        -webkit-transform: scale(1.02);
+        transform: scale(1.02);
     }
     75% {
-        -webkit-transform: scale(0.95);
-        transform: scale(0.95);
+        -webkit-transform: scale(0.98);
+        transform: scale(0.98);
     }
 }
 .pulse {
