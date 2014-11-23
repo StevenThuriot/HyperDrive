@@ -186,8 +186,8 @@ header h2
     max-width: 100%;
     margin: 0 auto;
 
-    border-radius: 3px;
-    box-shadow: 0 0 8px #0e0e0e;
+    border-radius: 2px;
+    box-shadow: 0 0 11px 0 rgba(0,0,0,0.95);
 }
 @-webkit-keyframes pulse
 {
