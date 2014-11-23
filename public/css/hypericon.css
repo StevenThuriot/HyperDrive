@@ -63,25 +63,25 @@ header h2 {
     box-shadow: 0 0 50px #0072BC;
     z-index: 100;
     font-size: 1.2rem;
-
     position: absolute;
-
     max-width: 350px;
     max-height: 350px;
-
     margin: auto;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 #drop-msg:before {
-  content:"";
-  display:block;
-  width: 100%;
-  height: 100%;
-  background: url(/images/hypericon.png) no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(/images/hypericon.png) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 #drop-overlay {
     opacity: 0;
@@ -147,6 +147,7 @@ header h2 {
     display: block;
     margin: 0px auto;
     max-width: 100%;
+    box-shadow: 0 0 8px #0e0e0e;
 }
 @-webkit-keyframes pulse {
     25% {
