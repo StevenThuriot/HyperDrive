@@ -52,7 +52,7 @@ header h1:before
 
     content: '';
 
-    background: url(/images/hypericon.png) no-repeat 0 0;
+    background: url(/images/hyperDrive.png) no-repeat 0 0;
     background-size: cover;
 }
 header h2
@@ -99,7 +99,7 @@ header h2
 
     content: '';
 
-    background: url(/images/hypericon.png) no-repeat center center;
+    background: url(/images/hyperDrive.png) no-repeat center center;
     background-size: cover;
 }
 #drop-overlay

@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/StevenThuriot/HyperIcon/master/public/images/hypericon.png) ![HyperIcon](http://img.dafont.com/preview.php?text=HyperIcon&ttf=squared_display0&ext=1&size=64&psize=m&y=53)
+![Logo](https://raw.githubusercontent.com/StevenThuriot/HyperDrive/master/public/images/hyperDrive.png) ![HyperDrive](http://img.dafont.com/preview.php?text=HyperDrive&ttf=squared_display0&ext=1&size=64&psize=m&y=53)
 ====
 
 <!-- [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy) -->

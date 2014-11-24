@@ -1,7 +1,7 @@
 {
-  "name": "HyperIcon",
+  "name": "HyperDrive",
   "description": "10 Minute Picture Service",
-  "repository": "https://github.com/steventhuriot/hypericon/",
+  "repository": "https://github.com/steventhuriot/hyperDrive/",
   "addons": ["mongohq", "rediscloud"],
   "env": {
     "NODE_ENV": {

@@ -17,8 +17,8 @@ if (cluster.isMaster) {
 
 } else {
 
-    var hypericon = require('./lib/server');
-    hypericon();
+    var hyperDrive = require('./lib/server');
+    hyperDrive();
 
 }
 

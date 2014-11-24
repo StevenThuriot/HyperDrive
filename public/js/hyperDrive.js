@@ -69,10 +69,10 @@
         }
     }
 
-    function createHyperIcon(fileName, image, id) {
+    function createHyperDrive(fileName, image, id) {
 
         var imageElement = $('<div>', {
-            class: 'hyperIcon',
+            class: 'hyperDrive',
             style: 'background-image: url("' + createHyperThumb(image) + '");',
             title: 'Click to view, Alt+Click to view the image only.',
             click: createClickEventHandler(id),
@@ -133,7 +133,7 @@
 
                             $.post("/", image, function (id) {
                                 NProgress.inc();
-                                createHyperIcon(file.name, image, id);
+                                createHyperDrive(file.name, image, id);
                             })
                                 .fail(function (xhr, textStatus, errorThrown) {
                                     //TODO: Improve error handling
@@ -169,14 +169,14 @@
     
     var dropzone = $('#dropzone');
     dropzone.children('.hyperIcon').each(function (i, icon) {
-        var hyperIcon = $(icon);
+        var hyperDrive = $(icon);
 
-        var id = hyperIcon.attr('id');
-        generateTextOverlay(id, hyperIcon);
+        var id = hyperDrive.attr('id');
+        generateTextOverlay(id, hyperDrive);
 
-        hyperIcon.bind('click', createClickEventHandler(id));
+        hyperDrive.bind('click', createClickEventHandler(id));
 
-        hyperIcon.bind('contextmenu', function () {
+        hyperDrive.bind('contextmenu', function () {
             return false;
         });
     });

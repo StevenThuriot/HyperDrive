@@ -1,5 +1,5 @@
 {
-  "name": "HyperIcon",
+  "name": "HyperDrive",
   "version": "2.0.0",
   "description": "Base64 to Image Service",
   "main": "index.js",
@@ -30,10 +30,10 @@
     "image",
     "base64"
   ],
-  "homepage": "https://github.com/steventhuriot/hypericon/",
+  "homepage": "https://github.com/steventhuriot/hyperDrive/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/steventhuriot/hypericon.git"
+    "url": "https://github.com/steventhuriot/hyperDrive.git"
   },
   "author": "Steven Thuriot",
   "licenses": [
@@ -43,7 +43,7 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/steventhuriot/hypericon/issues"
+    "url": "https://github.com/steventhuriot/hyperDrive/issues"
   },
   "engines": {
     "node": "0.10.x"
