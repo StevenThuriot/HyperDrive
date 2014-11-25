@@ -1,6 +1,7 @@
 {
   "name": "HyperDrive",
   "description": "10 Minute Picture Service",
+  "logo": "https://raw.githubusercontent.com/StevenThuriot/HyperDrive/master/public/images/hyperDrive.png",
   "repository": "https://github.com/steventhuriot/hyperDrive/",
   "addons": ["mongohq", "rediscloud"],
   "env": {
