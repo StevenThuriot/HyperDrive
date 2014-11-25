@@ -72,7 +72,7 @@
     function createHyperDrive(fileName, image, id) {
 
         var imageElement = $('<div>', {
-            class: 'hyperDrive',
+            class: 'hyperIcon',
             style: 'background-image: url("' + createHyperThumb(image) + '");',
             title: 'Click to view, Alt+Click to view the image only.',
             click: createClickEventHandler(id),
