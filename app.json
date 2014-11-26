@@ -8,6 +8,10 @@
     "NODE_ENV": {
       "description": "The NodeJS environment. (This shouldn't be altered)",
       "value": "production"
+    },
+    "EXPRESS_TRUST_PROXY": {
+      "description": "Wether or not to trust the proxy when trying to resolve the client's IP address.",
+      "value": "true"
     }
   },
   "keywords": [ "image", "base64", "10 minute" ]
