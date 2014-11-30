@@ -4,6 +4,7 @@
     //if (typeof window.FileReader === 'undefined') {
     //    
     //} else {
+    var dragCounter = 0; //dragleave triggers when dragging over a child element :(
 
     var docuElement = $(document.documentElement);
 
@@ -16,6 +17,8 @@
         event.preventDefault();
         event.stopPropagation();
 
+        dragCounter++;
+
         $('#drop-overlay').addClass('state-over');
     });
 
@@ -23,14 +26,10 @@
         event.preventDefault();
         event.stopPropagation();
 
-        $('#drop-overlay').removeClass('state-over');
-    });
-
-    docuElement.on('dragend', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        $('#drop-overlay').removeClass('state-over');
+        dragCounter--;
+        if (dragCounter === 0) {
+            $('#drop-overlay').removeClass('state-over');
+        }
     });
 
 
@@ -166,7 +165,7 @@
         NProgress.done();
     });
 
-    
+
     var dropzone = $('#dropzone');
     dropzone.children('.hyperIcon').each(function (i, icon) {
         var hyperDrive = $(icon);
