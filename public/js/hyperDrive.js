@@ -115,6 +115,7 @@
 
     docuElement.on('drop', function (event) {
         $('#drop-overlay').removeClass('state-over');
+        dragCounter = 0;
 
         if (event.originalEvent.dataTransfer) {
             var files = event.originalEvent.dataTransfer.files;
