@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
-            my_target: {
+            js: {
                 files: {
                     'public/hyperdrive.js': 'public/hyperdrive.js'
                 }
@@ -27,6 +27,22 @@ module.exports = function (grunt) {
                 src: 'public/hyperdrive.css',
                 dest: 'public/hyperdrive.css'
             }
+        },
+        watch: {
+            js: {
+                files: ['src/js/*.js'],
+                tasks: ['concat', 'uglify'],
+                options: {
+                    livereload: true,
+                }
+            },
+            css: {
+                files: ['src/css/*.css'],
+                tasks: ['cssmin'],
+                options: {
+                    livereload: true,
+                }
+            }
         }
     });
 
@@ -34,8 +50,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-
-    // Default task(s).
     grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
 };
