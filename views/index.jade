@@ -7,5 +7,8 @@ block content
         each img in images
           .hyperIcon(id="#{img.id}", style="background-image: url('#{img.image}')", title='Click to view, Alt+Click to view the image only.')
 
+    script(type="text/javascript").
+        on_index=true;
+
     #drop-overlay
         #drop-msg.pulse
