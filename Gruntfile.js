@@ -1,4 +1,6 @@
 module.exports = function (grunt) {
+    require('load-grunt-tasks')(grunt);
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         concat: {
@@ -43,14 +45,50 @@ module.exports = function (grunt) {
                     livereload: true,
                 }
             }
+        },
+        shell: {
+            mongodb: {
+                command: 'mongod --dbpath ./.db',
+                options: {
+                    stdout: false,
+                    stderr: false,
+                    failOnError: false,
+                    execOptions: {
+                        cwd: '.',
+                        detached: true 
+                    },
+                    async: true
+                }
+            },
+            server: {
+                command: 'npm start',
+                options: {
+                    stdout: false,
+                    stderr: false,
+                    failOnError: false,
+                    execOptions: {
+                        cwd: '.',
+                        detached: true 
+                    },
+                    async: true
+                }
+            },
+            watch: {
+                command: 'grunt watch',
+                options: {
+                    stdout: true,
+                    stderr: true,
+                    failOnError: true,
+                    execOptions: {
+                        cwd: '.'
+                    }
+                }
+            }
         }
     });
 
 
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.registerTask('default', ['shell']);
 
-    grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
+    grunt.registerTask('minify', ['concat', 'uglify', 'cssmin']);
 };
