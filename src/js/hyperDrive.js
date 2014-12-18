@@ -45,7 +45,9 @@
 
                 var location = "/" + id;
 
-                if (!event.altKey) {
+                if (event.altKey) {
+                    location = "/img" + location;
+                } else {                    
                     location = "/view" + location;
                 }
 
