@@ -15,5 +15,5 @@
     * The server responds with a unique id that can be used for the next 10 minutes.
     	* The first few seconds the image will be served from memory for speed.
     	* Afterwards, the image will be served from MongoDB.
-    * GET `http://nodejs/id` to see the image. Content is passed as the correct `image/*` datatype.
+    * GET `http://nodejs/img/id` to see the image. Content is passed as the correct `image/*` datatype.
     * See the [XBMC Notifier plugin](https://github.com/steventhuriot/HyperQube-Plugins) for sample usage.
