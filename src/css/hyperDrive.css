@@ -78,7 +78,7 @@ header a {
 {
     font-size: 1.2rem;
 
-    position: absolute;
+    position: fixed;
     z-index: 100;
     top: 0;
     right: 0;
@@ -241,7 +241,7 @@ footer {
     margin: 0 2em;
     font-size: 0.75em; 
     
-    position: absolute;
+    position: fixed;
     
     right: 0;
     bottom: 0;
