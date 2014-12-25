@@ -7,20 +7,15 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.10.4",
+    "express": "~4.10.6",
     "hat": "0.0.3",
     "mongoskin": "~1.4.4",
-    "jade": "~1.8.1",
-    "lwip": "0.0.5",
+    "jade": "~1.8.2",
+    "lwip": "0.0.6",
     "memory-cache": "0.0.5",
-    "is-bmp": "latest",
     "is-gif": "latest",
     "is-jpg": "latest",
-    "is-jxr": "latest",
     "is-png": "latest",
-    "is-psd": "latest",
-    "is-tif": "latest",
-    "is-webp":"latest",
     "express-rate-limiter-redis": "~1.1.0"
   },
   "devDependencies": {
