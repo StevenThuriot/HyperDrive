@@ -8,7 +8,7 @@ module.exports = function (grunt) {
                 separator: ';',
             },
             js: {
-                src: ['src/js/*.js'],
+                src: ['src/*.js', 'src/**/*.js'],
                 dest: 'public/hyperdrive.js',
             }
         },
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
         cssmin: {
             combine: {
                 files: {
-                    'public/hyperdrive.css': 'src/css/*.css'
+                    'public/hyperdrive.css': ['src/*.css', 'src/**/*.css']
                 }
             },
             minify: {
@@ -32,14 +32,14 @@ module.exports = function (grunt) {
         },
         watch: {
             js: {
-                files: ['src/js/*.js'],
+                files: ['src/*.js', 'src/**/*.js'],
                 tasks: ['concat', 'uglify'],
                 options: {
                     livereload: true,
                 }
             },
             css: {
-                files: ['src/css/*.css'],
+                files: ['src/*.css', 'src/**/*.css'],
                 tasks: ['cssmin'],
                 options: {
                     livereload: true,

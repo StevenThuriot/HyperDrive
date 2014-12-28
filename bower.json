@@ -1,0 +1,34 @@
+{
+  "name": "HyperDrive",
+  "main": "index.js",
+  "version": "2.0.0",
+  "homepage": "https://github.com/StevenThuriot/HyperDrive",
+  "authors": [
+    "Steven Thuriot <steven@thuriot.be>"
+  ],
+  "description": "10 Minute Image Service",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "image",
+    "base64"
+  ],
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "nprogress": "~0.1.6"
+  }
+}
