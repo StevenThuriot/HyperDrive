@@ -1,24 +1,25 @@
 extends layout
 
 block content
-    h1 About
-    
-    p HyperDrive is a "10 minute image" service, written in NodeJS.
-    
-    p 
-        | It was originally created as a 10 second service, used for serving small images in the 
-        a(href='https://github.com/StevenThuriot/HyperQube') HyperQube
-        |  project, but has evolved much ever since.
-    
-    p It is built arround the notion of a simple base64 image post. It will keep this has for 10 minutes in a MongoDB under a unique id and happilly serve it to all requesters.
-    
-    br
-    
-    p 
-        | HyperDrive is an open source project started by 
-        a(href='http://steven.thuriot.be') Steven Thuriot
-        | . You can find its code on 
-        a(href='https://github.com/StevenThuriot/HyperDrive') GitHub
-        |.
-      
-    p Feel free to fork, play around, extend and send me a pull request!
+    article
+        h1 About
+
+        p HyperDrive is a "10 minute image" service, written in NodeJS.
+
+        p 
+            | It was originally created as a 10 second service, used for serving small images in the 
+            a(href='https://github.com/StevenThuriot/HyperQube') HyperQube
+            |  project, but has evolved much ever since.
+
+        p It is built arround the notion of a simple base64 image post. It will keep this has for 10 minutes in a MongoDB under a unique id and happilly serve it to all requesters.
+
+        br
+
+        p 
+            | HyperDrive is an open source project started by 
+            a(href='http://steven.thuriot.be') Steven Thuriot
+            | . You can find its code on 
+            a(href='https://github.com/StevenThuriot/HyperDrive') GitHub
+            |.
+
+        p Feel free to fork, play around, extend and send me a pull request!
