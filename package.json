@@ -26,7 +26,8 @@
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-watch": "latest",
     "load-grunt-tasks": "latest",
-    "grunt-shell-spawn": "latest"
+    "grunt-shell-spawn": "latest",
+    "grunt-csscomb": "~3.0.0"
   },
   "keywords": [
     "image",

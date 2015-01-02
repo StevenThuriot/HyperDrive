@@ -30,6 +30,14 @@ module.exports = function (grunt) {
                 dest: 'public/hyperdrive.css'
             }
         },
+        csscomb: {
+            dynamic_mappings: {
+                expand: true,
+                cwd: 'src/',
+                src: ['*.css'],
+                dest: 'src/'
+            }
+        },
         watch: {
             js: {
                 files: ['src/*.js', 'src/**/*.js'],

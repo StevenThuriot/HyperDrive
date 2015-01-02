@@ -1,179 +1,130 @@
-body
-{
+body {
     font-family: 'Montserrat', sans-serif;
-    
     color: #2c2f31;
 }
-header
-{
+header {
     font-weight: bold;
-
     display: inline-block;
-
     margin-bottom: 3em;
-
     letter-spacing: -1px;
-
     color: #7041b5;
     background: -webkit-linear-gradient(transparent, transparent), url(/images/galaxy.jpg) repeat;
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
-header:before
-{
+header:before {
     position: fixed;
     z-index: 1050;
     top: 0;
     right: 0;
-
     width: 100%;
     height: 5px;
     margin: 0 0 0 0;
-
     content: '';
-
     background: url(/images/galaxy.jpg) no-repeat 0 0;
     background-size: cover;
 }
-header h1
-{
+header h1 {
     font-size: 3rem;
-
     margin: 10px 0 10px 0;
 }
-header h1:before
-{
+header h1:before {
     float: left;
-
     width: 5rem;
     height: 5rem;
     margin: -.2rem .5rem 2px 2px;
-
     content: '';
-
     background: url(/images/hyperDrive.png) no-repeat 0 0;
     background-size: cover;
 }
-header h2
-{
+header h2 {
     font-size: 1rem;
     font-weight: bold;
-
     margin: -.6em 0 0 4.15em;
-
     text-align: right;
 }
 header a {
-     text-decoration: none;
-     color: #7041b5;
+    text-decoration: none;
+    color: #7041b5;
 }
 main {
     margin: 1em 1.7em 3em;
 }
-#drop-overlay,
-#drop-msg
-{
+#drop-overlay, #drop-msg {
     -webkit-transition: all .3s;
             transition: all .3s;
 }
-#drop-msg
-{
+#drop-msg {
     font-size: 1.2rem;
-
     position: fixed;
     z-index: 100;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-
     max-width: 350px;
     max-height: 350px;
     margin: auto;
-
     border: 1px solid #0072bc;
     border-radius: 100%;
     background-color: #d8dee3;
     box-shadow: 0 0 50px #0072bc;
 }
-#drop-msg:before
-{
+#drop-msg:before {
     display: block;
-
     width: 100%;
     height: 100%;
-
     content: '';
-
     background: url(/images/hyperDrive.png) no-repeat center center;
     background-size: cover;
 }
-#drop-overlay
-{
+#drop-overlay {
     position: fixed;
     z-index: 99;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     pointer-events: none;
-
     opacity: 0;
     background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(216, 222, 227, .30000000000000004)), to(#3f4447));
     background-image: -webkit-radial-gradient(circle, rgba(216, 222, 227, .30000000000000004), #3f4447);
     background-image:         radial-gradient(circle, rgba(216, 222, 227, .30000000000000004), #3f4447);
     background-repeat: no-repeat;
 }
-#drop-overlay.state-over
-{
+#drop-overlay.state-over {
     opacity: .95;
 }
-#dropzone
-{
+#dropzone {
     text-align: center;
 }
-.hyperIcon
-{
+.hyperIcon {
     position: relative;
-
     float: left;
     overflow: hidden;
-
     width: 200px;
     height: 200px;
     margin: 5px;
-
     cursor: pointer;
     -webkit-transition: all 1s ease;
             transition: all 1s ease;
-
     border-radius: 100%;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 }
-.hyperIcon p
-{
+.hyperIcon p {
     font: 26px Monaco, monospace;
-
     position: absolute;
     top: -26px;
     left: 90px;
-
     width: 20px;
     height: 100px;
-
     -webkit-transform-origin: bottom center;
-
         -ms-transform-origin: bottom center;
-
             transform-origin: bottom center;
-
     color: #f8f8ff;
-  /*
+    /*
     color: #fff;
     text-shadow:
         -1px -1px 0 #000,
@@ -182,50 +133,38 @@ main {
         1px 1px 0 #000;
     */
 }
-.hyperView
-{
+.hyperView {
     right: auto;
     left: auto;
-
     display: block;
     overflow: hidden;
-
     max-width: 100%;
     margin: 0 auto;
-
     border-radius: 2px;
-    box-shadow: 0 0 11px 0 rgba(0,0,0,0.95);
+    box-shadow: 0 0 11px 0 rgba(0, 0, 0, .95);
 }
-@-webkit-keyframes pulse
-{
-    25%
-    {
+@-webkit-keyframes pulse {
+    25% {
         -webkit-transform: scale(1.02);
                 transform: scale(1.02);
     }
-    75%
-    {
+    75% {
         -webkit-transform: scale(.98);
                 transform: scale(.98);
     }
 }
-@keyframes pulse
-{
-    25%
-    {
+@keyframes pulse {
+    25% {
         -webkit-transform: scale(1.02);
                 transform: scale(1.02);
     }
-    75%
-    {
+    75% {
         -webkit-transform: scale(.98);
                 transform: scale(.98);
     }
 }
-.pulse
-{
+.pulse {
     display: inline-block;
-
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
     -webkit-animation-name: pulse;
@@ -236,40 +175,35 @@ main {
             animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
-
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 footer {
-    color: #A8A8A8;
-    font-size: 0.75em; 
-    
-    background:#fff;
-    
+    font-size: .75em;
     position: fixed;
-    
-    text-align: right;
-    
     right: 0;
     bottom: 0;
-    height: 3em;
     width: 100%;
+    height: 3em;
+    text-align: right;
+    color: #a8a8a8;
+    background: #fff;
 }
 footer a {
     text-decoration: none;
-    color: #A8A8A8;
+    color: #a8a8a8;
 }
 footer a:hover {
     text-decoration: underline;
 }
 footer ul {
     margin: 0;
+    margin: .5em 2em;
     list-style: none;
-    margin: 0.5em 2em;
 }
 footer li {
-    display: inline-block;
     line-height: 1em;
+    display: inline-block;
 }
-footer li+li {
-    margin-left: 0.75em;
+footer li + li {
+    margin-left: .75em;
 }
