@@ -3,11 +3,12 @@ body {
     color: #2c2f31;
 }
 header {
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     display: inline-block;
     margin-bottom: 3em;
     letter-spacing: -1px;
-    color: #7041b5;
+    color: #6c3ba6;
     background: -webkit-linear-gradient(transparent, transparent), url(/images/galaxy.jpg) repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -40,12 +41,12 @@ header h1:before {
 header h2 {
     font-size: 1rem;
     font-weight: bold;
-    margin: -.6em 0 0 4.15em;
+    margin: -1.5em 2px 0 0;
     text-align: right;
 }
 header a {
     text-decoration: none;
-    color: #7041b5;
+    color: #6c3ba6;
 }
 main {
     margin: 1em 1.7em 3em;
